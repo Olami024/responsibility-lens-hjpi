@@ -1,6 +1,4 @@
 # responsibility-lens-hjpi
-HJPI Scoring Tool — The Responsibility Lens Framework by  Aderayo Adelanwa (Ethentra Limited)
-# Responsibility Lens HJPI Scoring Tool
 
 **Human Judgment Preservation Index**
 *By Aderayo Adelanwa | Ethentra Limited*
