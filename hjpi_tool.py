@@ -131,7 +131,8 @@ def run_evaluation():
         "verdict": verdict
     }
 
-
+import matplotlib
+matplotlib.use('TkAgg')
 import csv
 import os
 from datetime import datetime
@@ -178,6 +179,80 @@ def save_to_csv(result):
     
     print(f"\n  Result saved to {filename}")
 
+import matplotlib.pyplot as plt
+import numpy as np
+
+def create_radar_chart(result):
+    dimensions = [
+        'Reasoning\nTransparency',
+        'User Override\nCapability', 
+        'Skill\nDevelopment',
+        'No Decision\nOutsourcing',
+        'Transparency\nat Use'
+    ]
+    
+    scores = result["scores"]
+    num_dims = len(dimensions)
+    
+    # Compute angles for each dimension
+    angles = np.linspace(0, 2 * np.pi, num_dims, 
+                         endpoint=False).tolist()
+    
+    # Close the radar chart
+    scores_plot = scores + [scores[0]]
+    angles += angles[:1]
+    
+    # Create figure
+    fig, ax = plt.subplots(figsize=(8, 8), 
+                           subplot_kw=dict(polar=True))
+    
+    # Colours matching Responsibility Lens brand
+    ax.fill(angles, scores_plot, 
+            color='#B85C2C', alpha=0.25)
+    ax.plot(angles, scores_plot, 
+            color='#B85C2C', linewidth=2)
+    
+    # Add dimension labels
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(dimensions, size=11, 
+                       fontweight='bold', color='#1A1A1A')
+    
+    # Set score range
+    ax.set_ylim(0, 5)
+    ax.set_yticks([1, 2, 3, 4, 5])
+    ax.set_yticklabels(['1', '2', '3', '4', '5'], 
+                        size=8, color='#7A6A5E')
+    ax.grid(color='#DDD0C4', linestyle='--', 
+            linewidth=0.5)
+    
+    # Title
+    plt.title(
+        f"HJPI Evaluation — {result['system_name']}\n"
+        f"Total: {result['total']}/25 "
+        f"({result['percentage']}%) — {result['verdict']}",
+        size=12, fontweight='bold', 
+        color='#1A1A1A', pad=20
+    )
+    
+    # Subtitle
+    fig.text(0.5, 0.02, 
+             'The Responsibility Lens | Ethentra Limited | '
+             'contact@aderayoadelanwa.com',
+             ha='center', size=8, color='#7A6A5E')
+    
+    # Save and show
+    filename = (f"hjpi_{result['system_name']
+                .replace(' ', '_')}.png"
+                )
+    plt.show()
+
+    plt.savefig(filename, dpi=150, 
+                bbox_inches='tight',
+                facecolor='#FAF7F2')
+    
+    
+    print(f"\n  Chart saved as {filename}")
 
 result = run_evaluation()
 save_to_csv(result)
+create_radar_chart(result)
