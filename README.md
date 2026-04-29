@@ -37,13 +37,6 @@ flourishing not just performance.
 
 **Toolkit:** store.aderayoadelanwa.com
 **Contact:** contact@aderayoadelanwa.com
-# Responsibility Lens HJPI Scoring Tool
-
-**Human Judgment Preservation Index — The Responsibility Lens Framework**
-*By Aderayo Adelanwa | Ethentra Limited*
-
-**Full toolkit:** store.aderayoadelanwa.com
-**Contact:** contact@aderayoadelanwa.com
 
 ---
 *Part of the Ethentra Responsible AI Evaluation Platform*
