@@ -257,7 +257,7 @@ st.markdown("---")
 
 st.markdown("""
 <div style="background:#FFF8EC; border-left:5px solid #B85C2C; padding:1rem 1.5rem; border-radius:4px; margin-top:1rem;">
-    📋 <b>Want a full Responsible AI Audit for your organisation?</b><br>
+    📋 <b style="color:#1A1A1A;">Want a full Responsible AI Audit for your organisation?</b><br>
     <a href="mailto:contact@aderayoadelanwa.com" style="color:#B85C2C; font-weight:600;">
         Book a call → contact@aderayoadelanwa.com
     </a>
